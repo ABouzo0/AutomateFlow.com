@@ -1,0 +1,22 @@
+=============================================
+  AutomateFlow — Setup in 3 Steps
+=============================================
+
+STEP 1 — ACTIVATE CONTACT FORM (2 min)
+  1. Go to formspree.io → sign up free
+  2. Click "+ New Form" → name it anything
+  3. Copy your Form ID (looks like: xpwzgkrb)
+  4. Open index.html in Notepad / TextEdit
+  5. Find:    YOUR_FORM_ID
+  6. Replace with your actual ID → Save
+
+STEP 2 — HOST YOUR SITE FREE (3 min)
+  1. Go to netlify.com → sign up free
+  2. Drag and drop this entire folder onto the page
+  3. Your site is live at a free .netlify.app URL
+
+STEP 3 — CONNECT YOUR DOMAIN
+  1. Buy your domain at namecheap.com (~$11/yr)
+  2. Netlify → Site Settings → Domain Management
+  3. Add custom domain → follow DNS steps → Done!
+=============================================
