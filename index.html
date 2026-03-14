@@ -1486,10 +1486,10 @@ initReveal();
     formData.forEach(function(val, key) { data[key] = val; });
 
     fetch('https://hooks.zapier.com/hooks/catch/26824274/ux77tkn/', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-})
+      method: 'POST',
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    })
     .then(function() {
       document.getElementById('form-area').style.display = 'none';
       document.getElementById('success-screen').classList.add('show');
