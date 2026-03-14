@@ -1239,7 +1239,7 @@ footer {
         <div class="form-title">Request Your Free Demo</div>
         <div class="form-sub">Fill this out and we'll reach out within 2 hours to schedule your free 15-minute walkthrough.</div>
 
-        <form class="cform" id="contact-form" action="https://hooks.zapier.com/hooks/catch/26824274/ux77tkn/" method="POST">
+        <form class="cform" id="contact-form">
           <div class="frow">
             <div class="ff">
               <label>Your Name *</label>
@@ -1481,25 +1481,21 @@ initReveal();
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // Submit via Formspree
-    var data = new FormData(form);
-    fetch(form.action, {
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(val, key) { data[key] = val; });
+
+    fetch('https://hooks.zapier.com/hooks/catch/26824274/ux77tkn/', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(data)
     })
-    .then(function(res) {
-      if (res.ok) {
-        document.getElementById('form-area').style.display = 'none';
-        document.getElementById('success-screen').classList.add('show');
-      } else {
-        btn.textContent = 'Something went wrong — try again';
-        btn.style.background = '#ff4455';
-        btn.disabled = false;
-      }
+    .then(function() {
+      document.getElementById('form-area').style.display = 'none';
+      document.getElementById('success-screen').classList.add('show');
     })
     .catch(function() {
-      btn.textContent = 'Error — please email us directly';
+      btn.textContent = 'Error — please try again';
+      btn.style.background = '#ff4455';
       btn.disabled = false;
     });
   });
